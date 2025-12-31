@@ -1,7 +1,7 @@
 # nursing-home-medicaid-application
 Need to apply for chronic care medicaid? See Medicaid-binder-blank.pdf for a blank version of the application I submitted. 
 
-Maybe it will serve as inspiration to you.
+Maybe it will serve as inspiration to you. NOTE: I do not promise to keep these documents up-to-date. This is only provided as an example as of December 2025. I am not a lawyer.
 
 A nursing home costs over $10k/month, so almost no one can pay for it out of pocket forever. Almost everyone in long term care ends up depending on Chronic Care Medicaid. You can private pay until you run out of money, and then get Medicaid, but that's not what we did.
 
