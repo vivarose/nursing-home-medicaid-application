@@ -7,5 +7,5 @@ Because the applicant was both under the age of 65 and disabled, we had the opti
 
 For the retirement account, we converted the asset to an income stream using monthly payments that were sufficiently large that they are expected to drain the account before the applicant dies, using a social security administration (SSA) actuarial table.
 
-The whole thing is super byzantine and took me about 20 days, but I was able to take care of everything without hiring a lawyer.
+The whole thing is super byzantine and took me almost a month to set up and document, but I was able to take care of everything without hiring a lawyer.
 
