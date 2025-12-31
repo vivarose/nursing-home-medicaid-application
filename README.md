@@ -13,3 +13,48 @@ For the retirement account, we converted the asset to an income stream using mon
 The whole thing is super byzantine and took me almost a month to set up and document, but I was able to take care of everything without hiring a lawyer.
 
 The applicant has too much income as well -- it's capped at $50/month income -- but that isn't disqualifying. It just means the applicant needs to pay the rest of the income to the nursing home each month.
+
+---
+
+# The LAW
+
+## **42 U.S.C. § 1396p: Transfers of Assets and Trusts**
+
+(c) Taking into account certain transfers of assets
+> (2) An individual shall not be ineligible for medical assistance by reason of paragraph (1) to the extent that—
+>> (B) the assets—
+>>> (iv) were transferred to a trust (including a trust described in subsection (d)(4)) established solely for the benefit of an individual under 65 years of age who is disabled (as defined in section 1382c(a)(3) of this title);
+
+---
+
+(d) Treatment of trust amounts
+> (4) This subsection shall not apply to any of the following trusts:
+>> (A) A trust containing the assets of an individual under age 65 who is disabled (as defined in section 1382c(a)(3) of this title) and which is established for the benefit of such individual by the individual, a parent, grandparent, legal guardian of the individual, or a court if the State will receive all amounts remaining in the trust upon the death of such individual up to an amount equal to the total medical assistance paid on behalf of the individual under a State plan under this subchapter.
+
+>> (C) A trust containing the assets of an individual who is disabled (as defined in section 1382c(a)(3) of this title) that meets the following conditions:
+>>> (i) The trust is established and managed by a non-profit association.
+>>> (ii) A separate account is maintained for each beneficiary of the trust, but, for purposes of investment and management of funds, the trust pools these accounts.
+>>> (iii) Accounts in the trust are established solely for the benefit of individuals who are disabled (as defined in section 1382c(a)(3) of this title) by the parent, grandparent, or legal guardian of such individuals, by such individuals, or by a court.
+>>> (iv) To the extent that amounts remaining in the beneficiary’s account upon the death of the beneficiary are not retained by the trust, the trust pays to the State from such remaining amounts in the account an amount equal to the total amount of medical assistance paid on behalf of the beneficiary under the State plan under this subchapter.
+
+From <https://www.law.cornell.edu/uscode/text/42/1396p> 
+
+---
+
+## **18 NYCRR 360-4.4: New York State Regulations**
+
+(iii) Exceptions. An individual will not be ineligible for MA [medical assistance] as a result of a transfer described in subparagraph (ii) of this paragraph if:
+> (c)
+>> (1) the asset was transferred:
+>>> (iv) to a trust established solely for the benefit of an individual under 65 years of age who is disabled;
+
+From <https://www.law.cornell.edu/regulations/new-york/18-NYCRR-360-4.4?hl=en-US#>
+
+---
+
+## **RETIREMENT FUNDS: periodic payments**
+
+**GIS 98 MA/024:**
+> "Once an individual is in receipt of or has applied for periodic payments, the principal in the retirement fund is not a countable resource. This includes situations where a Medicaid applicant has already elected less than the maximum periodic payment amount and this election is irrevocable. In such situations, only the periodic payment amount received is counted as income and the principal is disregarded as a resource."
+
+(but the periodic payments must be sufficiently large that they could reasonably get the balance down to zero)
