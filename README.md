@@ -3,7 +3,7 @@ Need to apply for chronic care medicaid? See Medicaid-binder-blank.pdf for a bla
 
 Maybe it will serve as inspiration to you.
 
-A nursing home costs over $10k/month, so almost no one can pay for it out of pocket forever. Everyone ends up depending on Chronic Care Medicaid. You can private pay until you run out of money, and then get Medicaid. That's not what we did.
+A nursing home costs over $10k/month, so almost no one can pay for it out of pocket forever. Almost everyone in long term care ends up depending on Chronic Care Medicaid. You can private pay until you run out of money, and then get Medicaid. That's not what we did.
 
 At first, the applicant had too much money (assets). 
 Because the applicant was both under the age of 65 and disabled, we had the option to use a NYSARC pooled special needs trust to shelter the applicant's assets. We opened up a funeral trust and a special needs trust to shelter assets.
