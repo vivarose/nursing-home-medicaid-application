@@ -1,0 +1,1062 @@
+\documentclass[11pt, letterpaper]{article}
+
+% --- PACKAGES ---
+\usepackage[table]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}      % To attach the scanned PDFs
+\usepackage[hidelinks]{hyperref} % Clickable TOC in the PDF
+\usepackage{fancyhdr}      % For page numbering and section headers
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable}     % For tables that span multiple pages
+\usepackage{booktabs}      % Professional table borders
+\usepackage{array}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{etoc} % Allows for local tables of contents
+\usepackage{ifthen}
+
+% --- FONT SETTING ---
+\renewcommand{\familydefault}{\sfdefault}
+
+\setlength{\parindent}{0pt}
+
+% --- SMART FOOTER CONFIGURATION ---
+\pagestyle{fancy}
+\fancyhf{} 
+
+% Left Footer: Logic to toggle the dot
+\fancyfoot[L]{%
+    \small \textbf{\nouppercase{\leftmark}}% Always print Part Name
+    \ifthenelse{\equal{\rightmark}{}}% IF RightMark is empty...
+        {}% THEN do nothing
+        { $\cdot$ \nouppercase{\rightmark}}% ELSE print " dot DocumentName"
+}
+
+% Right Footer: Page Number
+\fancyfoot[R]{\small Page \thepage}           
+\renewcommand{\headrulewidth}{0pt}  
+\renewcommand{\footrulewidth}{0.4pt}
+
+% --- CUSTOM COMMANDS ---
+
+% The Sub-header for narratives
+\newcommand{\sectiontitle}[1]{
+    \vspace{0.5cm}
+    \noindent\textbf{\large #1} 
+    \vspace{0.2cm}
+    \hrule
+    \vspace{0.3cm}
+}
+
+% A macro to create a "Part" Divider Page
+% It creates a new page, centers the Title heavily, and adds it to TOC
+\makeatletter % <--- REQUIRED: Allows us to use the internal \l@ commands
+
+
+
+% THE NEW "SMART" BINDER PART
+% 1. Starts the Section
+% 2. Prints the Title Page
+% 3. Generates an Automatic List (TOC Style with Page Numbers)
+\newcommand{\BinderPart}[2]{%
+    \clearpage
+    \phantomsection
+    \refstepcounter{section} 
+    \addcontentsline{toc}{section}{#1: #2} 
+
+    % UPDATED: Set the Left Mark (Part), Clear the Right Mark (Doc)
+    \markboth{#1: #2}{} % This ensures that on the Part Cover Page, the footer just says "PART 1: Application $\cdot$" without repeating itself.
+    
+    % The Visual Cover Page
+    \vspace*{2cm} 
+    \begin{center}
+        {\Huge \textbf{#1}} \\[0.5cm] 
+        {\Huge #2} 
+    \end{center}
+    \vspace*{1.5cm}
+    
+    % --- ETOC CONFIGURATION (Mini TOC) ---
+    
+    % 1. Go deep enough to see Sub-Subsections (Exhibits/Checks)
+    \etocsetnexttocdepth{subsubsection}
+    
+    % 2. Silence the 'Section' (Part Title) so it doesn't duplicate
+    \etocsetstyle{section}{}{}{}{} 
+    
+    % 3. Use standard LaTeX TOC styling for subsections & subsubsections
+    % We replace the deprecated command with \l@subsection{#1}{#2}
+    \etocsetstyle{subsection}
+        {}                            % Start
+        {}                            % Prefix
+        {\l@subsection{\etocname}{\etocpage}} % Content (Standard dotted line)
+        {}                            % Suffix
+
+    \etocsetstyle{subsubsection}
+        {}
+        {}
+        {\l@subsubsection{\etocname}{\etocpage}}
+        {}
+        
+    % 4. Print the local list
+    \localtableofcontents
+    
+    \clearpage
+}
+\makeatother % <--- REQUIRED: Returns @ to normal behavior
+
+
+\begin{document}
+\pagenumbering{arabic} 
+
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    
+    % --- LOGO / HEADER (Optional) ---
+    % If you have a university or personal letterhead logo, you could put it here.
+    % Otherwise, a simple rule looks professional.
+    \hrule height 2pt
+    \vspace{0.5cm}
+    
+    % --- TITLE ---
+    {\Huge \textbf{MEDICAID APPLICATION}} \\[0.5cm] 
+    {\LARGE \textbf{Chronic Care / Nursing Home Coverage}}
+    \vspace{0.5cm}
+    \hrule height 2pt
+    
+    \vspace{2.5cm}
+    
+    % --- APPLICANT INFO ---
+    {\Large \textbf{APPLICANT}} \\[0.5cm]
+    {\Huge Firstname Lastname} \\[0.5cm]
+    {\Large Resident at:\\[0.1cm]
+PLACE\\
+Rehabilitation and Nursing Center,\\[0.1cm]
+City, State}
+    
+    \vspace{2cm}
+    
+    % --- REPRESENTATIVE INFO ---
+    {\Large \textbf{SUBMITTED BY}} \\[0.5cm]
+    {\Large Firstname Lastname (Daughter \& Power of Attorney)} \\[0.2cm]
+    {\large address} \\
+    {\large City, State zip} \\
+    {\large email}
+    
+    \vspace{2cm}
+    
+    % --- DATE ---
+    {\Large \textbf{DATE OF SUBMISSION}} \\[0.5cm]
+    {\Large Month day, year}
+    
+
+
+\end{titlepage}
+    
+    % --- FRONT MATTER ---
+    %\pagenumbering{roman} 
+	\setcounter{tocdepth}{2} % Show only Sections and Subsections in the main TOC
+\markright{}
+    \tableofcontents
+    \newpage
+    %\pagenumbering{arabic} 
+    
+    % =================================================================
+    % PART 1: APPLICATION & IDENTITY
+    % =================================================================
+    
+    \BinderPart{PART 1}{Forms \& Identity}
+    
+
+% 1. Permission to Verify Information
+    \phantomsection
+    \addcontentsline{toc}{subsection}{Permission to Verify Information}
+\markright{Permission to Verify Information}
+[The county DSS mailed us a paper to sign.]
+  %  \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}, scale=0.9]{permissionVerify.pdf}
+
+\clearpage
+    \phantomsection
+    \addcontentsline{toc}{subsection}{Permission to Represent Applicant}
+\markright{Permission to Represent Applicant}
+[The county DSS mailed us a paper to sign.]
+ %   \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}, scale=0.9]{PermissionRepresent.pdf}
+
+    \phantomsection
+    \addcontentsline{toc}{subsection}{DOH-5148: Authorization for Verification of Resources}
+\markright{Authorization for Verification of Resources}
+    \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}, scale=0.9]{doh-5148.pdf}
+
+    \phantomsection
+    \addcontentsline{toc}{subsection}{DOH-5147: Submission of Application on Behalf of Applicant}
+\markright{Submission of Application on Behalf of Applicant}
+    \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}, scale=0.9]{doh-5147.pdf}
+
+
+    % 3. Power of Attorney
+    \phantomsection
+    \addcontentsline{toc}{subsection}{Power of Attorney [notarized]}
+\markright{Power of Attorney}
+    \includepdf[pages=-, scale=0.91, pagecommand={\thispagestyle{fancy}}]{POA.pdf}
+    
+
+    \phantomsection
+    \addcontentsline{toc}{subsection}{DOH-4220: Medicaid application form}
+\markright{Application}
+    \includepdf[pages=-,  pagecommand={\thispagestyle{fancy}}]{doh-4220.pdf}
+
+
+    % 3. Supplement A
+    \phantomsection
+    \addcontentsline{toc}{subsection}{DOH-5178: Supplement A}
+\markright{Supplement A}
+    \includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{fancy}}]{doh-5178a-supplementA-empty.pdf}
+    
+    \phantomsection
+    \addcontentsline{toc}{subsection}{Identity Documents}
+\markright{Passport}
+\sectiontitle{Passport}
+\noindent
+[ passport ]
+\newpage
+%\includegraphics[height=0.95\textheight]{passport}
+\markright{Identity documents}
+[ birth certificate, social security card, driver license ]
+    %\includepdf[pages=-, pagecommand={\thispagestyle{fancy}}]{identitydocuments.pdf}
+\newpage
+    \phantomsection
+    \addcontentsline{toc}{subsection}{Health insurance}
+\markright{Health insurance}
+ [insurance cards, scanned]
+   % \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}]{insurancecards.pdf}
+
+\newpage
+\markright{Medicare}
+   % \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}]{MedicareCard.pdf}
+
+
+\sectiontitle{Medicare insurance coverage report}
+
+\noindent
+\hspace{-.5in}
+ [printout from Medicare 1]
+    %\includegraphics[scale=0.7]{MedicareInfo1.pdf} 
+
+\noindent
+\hspace{-.5in}
+[printout from Medicare 2]
+    %\includegraphics[scale=0.7]{MedicareInfo2.pdf}
+
+[Medicare Premiums document]
+    %\includepdf[pages=-, scale=.97, pagecommand={\thispagestyle{fancy}}]{MedicarePremiums.pdf}
+
+
+    \newpage
+    \phantomsection
+    \addcontentsline{toc}{subsection}{Nursing Home Documents (PRI/Admission)}
+\markright{Nursing Home Documents}
+
+[Nursing home admission record]
+
+\includepdf[pages=-, scale=.9, pagecommand={\thispagestyle{fancy}}]{doh-694.pdf}
+\includepdf[pages=-, scale=.9, pagecommand={\thispagestyle{fancy}}]{LDSS-3559.pdf}
+
+
+
+   % \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}, scale=0.87, trim={3.1em 1cm 1em 1em}, clip]{nursing_home_docs.pdf}
+    
+    
+
+% =================================================================
+    % PART 2: INCOME VERIFICATION
+    % =================================================================
+
+    \BinderPart{PART 2}{Income Verification}
+
+      \phantomsection
+    \addcontentsline{toc}{subsection}{Summary of Monthly Income (2026)}
+\markright{Monthly Income}
+ 
+\begin{center}
+        \large \textbf{SUMMARY OF MONTHLY INCOME (2026)}
+    \end{center}
+    \vspace{0.3cm}
+
+    \begin{table}[h!]
+        \centering
+        \renewcommand{\arraystretch}{1.5} 
+        \begin{tabular}{ >{\bfseries}l l r >{\raggedright\arraybackslash}p{6.2cm} }
+            \toprule
+            Source & \textbf{Document} & \textbf{Gross Amt} & \textbf{Notes} \\
+            \midrule
+            
+            % ITEM 1: Social Security (2026)
+            Social Security & 
+            nextyear COLA Notice & 
+            \textbf{\$xxxx.xx} & 
+            \textbf{Gross Benefit.} Includes nextyear COLA. (Net deposit will be \textbf{\$xxxx.xx} after \$202.90 Medicare premium deduction). \\
+            
+
+            % ITEM 2: Bankname3 Annuity
+            \rowcolor{gray!10}
+            Bankname3 Annuity & 
+            Payout Confirmation & 
+            \textbf{\$xxx.xx} & 
+            \textbf{New Income Stream.} Systematic withdrawal elected [Month year]. \\
+
+\midrule
+\textbf{TOTAL} & & \textbf{\$xxxx.xx} & \textbf{Total Anticipated Gross Monthly Income} \\
+\bottomrule
+        \end{tabular}
+    \end{table}
+
+% The expectation is that Medicaid will require almost all of this monthly income to go to the nursing home. This is called NAMI.
+
+    \vspace{1cm}
+
+% --- DOCUMENT LIST ---
+    \sectiontitle{Supporting Documentation}
+    \begin{itemize}
+        \item \textbf{2026 Social Security COLA Notice:} Confirms the new [year] benefit amount. (p.~\pageref{page:COLA})
+        \item \textbf{SSA Benefit Verification Letter:} Confirms current active status. (p.~\pageref{page:SSverif})
+        \item \textbf{SSA Payment History:} Detailed ledger of disbursements. (p.~\pageref{page:SSPayments})
+        \item \textbf{SSA-1099 (year):} Historical income reference. (p.~\pageref{page:SS1099})
+        \item \textbf{Bankname3 systematic monthly payout confirmation:} Documentation of Payout Mode election (Month year). (p.~\pageref{page:payout})
+    \end{itemize}
+    
+    \clearpage
+
+    % --- ATTACHMENTS ---
+
+    \phantomsection
+    \addcontentsline{toc}{subsection}{Social Services Disability Income (SSDI)}
+\markright{SSDI}
+    \addcontentsline{toc}{subsubsection}{SSA-4926-SM: SSDI Cost of Living Adjustment (COLA)}
+    \label{page:COLA}
+[Social Security COLA document]
+    %\includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{fancy}}]{SSCOLA2026.pdf} 
+% form SSA-4926-SM
+
+\clearpage
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{Social Security Benefit Verification Letter}
+    \label{page:SSverif}
+
+   \includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{fancy}}]{Sample-of-Social-Security-Benefit-Verification-Letter.pdf} 
+
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{Recent SSDI payments}
+    \label{page:SSPayments}
+[printout of  recent payments from social security to the applicant]
+    %\includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{fancy}}]{SSPayments.pdf} 
+
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{SSA-1099SM: SSDI Benefit Statement for [lastyear]}
+    \label{page:SS1099}
+
+    \includepdf[pages=-, scale = 0.9, pagecommand={}]{1099ssa.pdf} 
+
+\clearpage
+    \phantomsection
+    \addcontentsline{toc}{subsection}{Bankname3 retirement account payout confirmation}
+\markright{Bankname3 retirement account payout confirmation}
+    \label{page:payout}
+[documentation of new Bankname3 payout]
+   % \includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{fancy}}]{Bankname3_payout_confirmation.pdf}
+
+
+    % =================================================================
+    % PART 3: RESOURCES & ASSET HISTORY
+    % =================================================================
+
+    \BinderPart{PART 3}{Resources \& Asset History}
+
+\label{sect:part3}
+
+
+\newpage
+% --- RESOURCE COVER PAGE ---
+    \phantomsection
+    \addcontentsline{toc}{subsection}{Resource Summary}
+\markright{Resource summary}
+    
+    \begin{center}
+        \vspace*{1cm}
+        {\LARGE \textbf{Resource Summary}} \\[0.5cm]
+        {\Large Asset Snapshot as of application date}
+    \end{center}
+
+    \vspace{1cm}
+
+    \noindent
+    The following table summarizes all liquid assets owned by the applicant. \\
+    \textbf{Total Countable Resources are BELOW the Medicaid Resource Limit.}
+
+    \vspace{0.5cm}
+
+    % --- SUMMARY TABLE ---
+    \begin{table}[h!]
+        \centering
+        \renewcommand{\arraystretch}{2.2}
+        \setlength{\arrayrulewidth}{1.2pt}
+        \begin{tabular}{| p{5.5cm} | >{\raggedleft\arraybackslash}p{4cm} | p{5cm} |}
+            \hline
+            \rowcolor{gray!25} \textbf{Asset} & \textbf{Current Value} & \textbf{Medicaid Status} \\ \hline
+            
+            % Item 1
+            1. Bankname Checking \newline \scriptsize{(account ending in xxxx)} & 
+            \$xxxxx.xx & 
+            \textbf{Countable Resource} \\ \hline
+            
+            % Item 2
+            2. Bankname Checking \newline \scriptsize{(account ending in xxxx)} & 
+            \$xxx.xx & 
+            \textbf{Countable Resource} \\ \hline
+            
+            % Item 3 
+            3. Bankname Retirement \newline \scriptsize{account number} & 
+            \textit{(See Note)} & 
+            \cellcolor{green!10} \textbf{EXEMPT} \newline \footnotesize{(Converted to Income Stream)} \\ \hline
+            
+            \hline
+            \rowcolor{gray!10} 
+            \textbf{TOTAL RESOURCES} & 
+            \textbf{\$xxxxx.xx} & 
+            \textbf{ELIGIBLE} \newline \footnotesize{(Below Resource Limit)} \\ \hline
+        \end{tabular}
+    \end{table}
+
+%%% RESOURCE LIMIT: https://nyspltc.health.ny.gov/medicaid/
+
+    \vspace{1cm}
+
+    % --- CRITICAL Bankname3 NOTE ---
+    \noindent
+    \fcolorbox{black}{white}{
+        \parbox{\textwidth}{
+            \vspace{0.3cm}
+            \centering
+\textbf{\Large  {\LARGE \textcolor{red}{!}} IMPORTANT NOTE REGARDING RETIREMENT ACCOUNT} \\
+            \vspace{0.3cm}
+            \raggedright
+            \large
+            The retirement account (balance of approx.\ \$XXXXXX) has been placed into \textbf{Systematic Withdrawal (Payout) Mode}.
+            
+%%% Reference: https://www.health.ny.gov/health_care/medicaid/publications/docs/gia/98ma024.pdf
+
+
+            \begin{itemize}
+                \item Per NYS Medicaid regulations, this asset has been converted to a \textbf{stream of monthly income}.
+                \item Please refer to \textbf{Part 2 (Income)} for the verification of the monthly payments.
+                \item \textbf{Do NOT count the  balance as a resource.}
+            \end{itemize}
+            \vspace{0.2cm}
+        }
+    }
+
+    \vfill
+    \begin{center}
+        \textit{Detailed 5-year statements and transaction audits\\for the accounts listed above follow in this section.}
+    \end{center}
+
+    % --- HEADER ---
+    %\begin{center}
+        %\LARGE \textbf{ASSET AUDIT SUMMARY} \\
+    %\end{center}
+
+\newpage
+    \phantomsection
+    \addcontentsline{toc}{subsection}{A. Bankname Audit}
+\markright{A. Bankname Audit}
+
+
+    \addcontentsline{toc}{subsubsection}{Bankname Audit Summary}
+ % --- HEADER ---
+    \begin{center}
+        \LARGE \textbf{A. Bankname Checking Audit} \\
+        \vspace{0.2cm}
+        \large Explanation of Large Transactions ($>$\$2,000)
+    \end{center}
+    \vspace{0.5cm}
+
+    % --- METADATA TABLE ---
+    \noindent
+    \begin{tabular}{ @{} l l }
+        \textbf{Account Owner:} & Firstname Lastname \\
+        \textbf{Account Number:} & Ending in xxxx \\
+        \textbf{Audit Period:} & [last five years] \\
+    \end{tabular}
+
+    \vspace{0.4cm}
+
+    % --- NARRATIVE ---
+    \sectiontitle{Account Narrative}
+\noindent
+    This account serves as the primary funding source for the applicant's living expenses.
+    \begin{itemize}
+        \item \textbf{Routine Income:} Monthly Social Security (SSDI) deposits of approx. \$xxxx. (Bankname3 payouts of net \$xxx/month are starting.)
+        \item \textbf{Routine Expenses:} Rent, utilities, food, etc.
+        \item \textbf{Opening Balance Note:} The opening deposit of \$xxxxx.00 (month year) represents the applicant's accumulated life savings, deposited as cash. (See bank record, p.~\pageref{page:openingBankname}).
+    \end{itemize}
+
+    \vspace{0.4cm}
+
+
+% --- TRANSACTION TABLE ---
+    \sectiontitle{Large Transaction Audit ($>$\$2,000)}
+    \label{page:keytable}
+
+    {
+        \centering
+        \renewcommand{\arraystretch}{1.5} 
+        \begin{tabular}{ l >{\raggedright\arraybackslash}p{1.6cm}  r >{\raggedright\arraybackslash}p{9cm} }
+            \toprule
+            \textbf{Date} & \textbf{Type} & \textbf{Amount} & \textbf{Explanation / Source} \\
+            \midrule
+            
+            year-MM-DD & Withdrawal & $-$\$xxxxx.xx & \textbf{Medicaid Trust Funding.} Transfers to NYSARC (d4C) and Funeral Trust. (See Part~\ref{part:trusts}.)\\
+            
+            \rowcolor{gray!10}
+            year-MM-DD & Check \#xxx & $-$\$xxxx.00 & \textbf{NYS Tax (Reimbursement).} Repayment to daughtername Lastname for tax bill. \textit{(See p.~\pageref{sec:taxreimb}).} \\ 
+            
+            year-MM-DD & E-Check \#xxx & $-$\$xxxx.00 & \textbf{Tax Payment.} US Treasury (IRS) payment for [year] Tax Year. \textit{(See p.~\pageref{sec:checktoIRS}).} \\
+            
+            \rowcolor{gray!10}
+            year-MM-DD & Deposit & \$xxxxx.xx & \textbf{Inheritance.} Bankname3 Life Insurance payout (Est. momfirstname Lastname). \textit{(See p.~\pageref{page:Bankname3let}).} \\
+            
+            year-MM-DD & Deposit & \$xxxx.00 & \textbf{SSA TREAS 310.} Social Security retroactive/lump sum payment. \\
+            
+            \rowcolor{gray!10}
+            year-MM-DD & Check \#xxx & $-$\$xxxx.00 & \textbf{Transfer to Self.} Funds moved to open Bankname2 FCU account. \textit{(See Bankname2 FCU audit, p.~\pageref{page:Bankname2table}).} \\
+            
+            year-MM-DD & Deposit & \$xxxxx.00 & \textbf{Opening Deposit.} Cash deposit. \textit{(See bank record, p.~\pageref{page:openingBankname}).} \\
+            
+            \bottomrule
+        \end{tabular}
+    }
+
+
+\iffalse
+\clearpage
+    \addcontentsline{toc}{subsubsection}{Bankname Balance History Graph}
+    % --- GRAPH ---
+    \sectiontitle{Balance History}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{Bankname_Balance_Graph_Full.pdf}
+    \end{figure}
+
+Balance as of [application date]: \$xxxxx.xx
+\fi
+
+    \newpage
+    % Exhibit A: Reimbursement (Kept here as it relates to Bankname outflow)
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{Check \#xxx: NYS Tax Reimbursement (\$xxxx)}
+\label{sec:taxreimb}
+    \section*{NYS Tax Reimbursement}
+    \noindent
+    \textbf{Transaction Summary:} Month day year: Applicant reimbursed daughter \$xxxx via Check \#xxx for a tax bill daughter paid on her behalf.
+    \vspace{0.2cm}
+    \hrule
+    \vspace{0.5cm}
+
+	\label{page:reimb}
+    \noindent \textbf{1. THE REIMBURSEMENT (Dec year)}
+    \begin{center}
+	[check image]
+        %\includegraphics[width=0.85\textwidth]{check_xxx_nys_taxes_reimb.pdf}
+    \end{center}
+    \vspace{0.5cm}
+
+    \noindent \textbf{2. ORIGINAL PAYMENT RECEIPT (Apr year)} \\
+    {Official Receipt showing Daughtername Lastname paid \$xxxx to NYS Dept of Taxation using her personal checking account. (next page)}
+    \newpage
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{IT-370: NYS Tax Extension and Receipt for \$xxxx}
+\includepdf[pages=1, scale=0.9, pagecommand={}]{it370.pdf}
+[receipt with proof daughter paid state taxes]
+    %\includepdf[pages=-, scale=0.9, pagecommand={}]{NYStaxreceipt.pdf}
+
+    \newpage
+    \addcontentsline{toc}{subsubsection}{Evidence of State Tax liability: \$xxxx}
+    \noindent \textbf{3. THE LIABILITY ([year] Tax Year)} \\
+    \textit{Excerpts from [year] NYS Tax Return showing amount owed matches \$xxxx.}
+    \vspace{0.5cm}
+    \begin{center}
+[excerpts from NYS tax return]
+        %\includegraphics[width=\textwidth]{NYStax1.png}
+    	    \vspace{0.5cm}
+	    \textit{(...Skipping to Line 61...)}
+	    \vspace{0.5cm}
+    	%\includegraphics[width=\textwidth]{NYStax2.png}
+	    \vspace{0.5cm}
+\noindent
+At the time of filing the state taxes, Daughtername had already paid New York State.
+	    \vspace{0.5cm}
+	%\includegraphics[width=\textwidth]{NYStax3.png}
+    \end{center}
+
+    
+
+\begin{center}
+    \textit{(Full Tax Return attached in Part~\ref{sect:taxreturns} C, p.~\pageref{page:NYStaxes}).}
+\end{center}
+
+
+
+\vspace{0.5in}
+\noindent \textbf{Conclusion:} This was a dollar-for-dollar reimbursement for a valid expense, not a gift.
+
+    % Bankname PDF Attachments
+    \newpage
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{Bankname Statements}
+[huge packet of bank statements]
+   % \includepdf[pages=-, scale=.9, pagecommand={\thispagestyle{fancy}}]{banknameBalance_transactions.pdf}
+%\includepdf[pages=-, pagecommand={\thispagestyle{fancy}}, scale = 0.9]{Bankname_statements.pdf}
+
+
+    % --- SUB-SECTION B: Bankname2 ---
+    \newpage
+    \phantomsection
+    \addcontentsline{toc}{subsection}{B. Bankname2 FCU Audit}
+\markright{B. Bankname2 FCU Audit}
+
+ % --- HEADER ---
+    \begin{center}
+        \LARGE \textbf{B. Bankname2 FCU Audit} \\
+    \end{center}
+    \vspace{0.5cm}
+    
+    \noindent
+    \begin{tabular}{ @{} l l }
+        \textbf{Account Owner:} & Firstname Lastname \\
+        \textbf{Financial Institution:} & Bankname2 Federal Credit Union \\
+        \textbf{Primary Account:} & \textbf{Checking (Share Draft)} -- Active (Routine expenses) \\
+        \textbf{Secondary Account:} & \textbf{Savings (Share)} -- Inactive / Nominal Balance ($\sim$\$1.00) \\
+    \end{tabular}
+    
+    \vspace{0.8cm}
+    
+    \sectiontitle{Account Narrative}
+    The Checking account was opened in Month year for routine expenses for the applicant. It was funded by a transfer from the applicant's primary Bankname account. 
+    
+    \vspace{0.2cm}
+    \noindent
+    Activity consists primarily of the initial funding and subsequent routine withdrawals for living expenses (rent checks, utilities, and pharmacy co-pays). There was a recent deposit from Bankname of \$xxx.00 on Month date, year.
+
+    \vspace{0.2cm}
+    \noindent
+    \textit{Note: The attached statements also reflect a mandatory Share Savings account which has maintained a nominal balance (approx. \$1.00) since opening. This savings account is inactive.}
+    
+    \vspace{0.6cm}
+    
+    \sectiontitle{Funding Source (Chain of Custody)}
+
+\label{page:Bankname2table}
+    \begin{table}[h!]
+        \centering
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{ @{} l l r p{7cm} @{} }
+            \toprule
+            \textbf{Date} & \textbf{Type} & \textbf{Amount} & \textbf{Explanation} \\
+            \midrule
+            year-MM-DD & Deposit & \$xxxx.00 & \textbf{Opening Transfer.} Funds from Bankname Check \#xxx. (See Bankname audit, p.~\pageref{page:keytable}). \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    
+
+
+\iffalse
+
+
+\newpage
+
+%\begin{minipage}
+    \sectiontitle{Balance History (Checking Only)}
+
+    The graph below demonstrates the consistent spend-down of funds for routine expenses. Deposits are transfers from the applicant's Bankname Checking account.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{Bankname2_Balance_Graph.pdf}
+    \end{figure}
+%\end{minipage}
+
+\fi
+    
+[printout of Bank2 checking and savings balances from website]
+    %\includepdf[pages=-, pagecommand={\thispagestyle{fancy}}]{Bankname2Balance.pdf}
+
+[printout of Bank2 checking recent transactions from website]
+   % \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}]{Bankname2_recent_transactions.pdf}
+% \includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{fancy}}]{Bankname2FCUstatements.pdf}
+
+[bank statements, five years]
+
+
+    % --- SUB-SECTION C: Bankname3 ASSET VIEW ---
+    \newpage
+    \phantomsection
+    \addcontentsline{toc}{subsection}{C. Bankname3   Retirement (Asset History)}
+\markright{C. Bankname3   Retirement Audit}
+
+ 
+    % --- HEADER ---
+    \begin{center}
+        \LARGE \textbf{Bankname3 Retirement Audit} \\
+        \vspace{0.2cm}
+        \large 5-Year Medicaid Lookback (Month year -- Month year)
+    \end{center}
+    \vspace{0.5cm}
+    
+    % --- METADATA TABLE ---
+    \noindent
+    \begin{tabular}{ @{} l l }
+        \textbf{Account Owner:} & Firstname Lastname \\
+        \textbf{Account Numbes:} & xxxxxxxxxxxxx \\
+        \textbf{Status:} & \textbf{Payout Mode} (Systematic Withdrawals Active) \\
+    \end{tabular}
+    
+    \vspace{0.8cm}
+
+    % --- NARRATIVE ---
+    \sectiontitle{Account Narrative}
+    This is a pre-tax retirement annuity. The account has entered "Payout Mode" as of late [year] to generate monthly income for the applicant. 
+    \vspace{0.2cm}
+    
+    \noindent
+    \textbf{Compliance Note:} The table below confirms that no lump-sum withdrawals or transfers to third parties occurred during the lookback period. All activity was passive market fluctuation until the recent establishment of systematic payouts (net \$xxx/month).
+
+% calculated with SSA actuarial table to ensure all of the balance is expected to be paid out by the expected month of death.
+
+    \vspace{0.6cm}
+
+    % --- WITHDRAWAL AUDIT ---
+    \sectiontitle{Withdrawal Audit (Lookback Period)}
+    
+    \begin{longtable}{@{} l r c @{}}
+        \toprule
+        \textbf{Statement Date} & \textbf{Ending Balance} & \textbf{Withdrawals/Transfers} \\
+        \midrule
+        \endfirsthead
+        
+        \toprule
+        \textbf{Statement Date} & \textbf{Ending Balance} & \textbf{Withdrawals/Transfers} \\
+        \midrule
+        \endhead
+        
+        \bottomrule
+        \endlastfoot
+        
+        % DATA ROWS
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+        year-MM-DD & \$xxxxxx.xx & None \\
+    \end{longtable}
+     
+
+\iffalse
+    \newpage
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{Balance history graph}
+\sectiontitle{Balance History}
+    \begin{figure}[H]
+        \centering
+	%\includegraphics{Bankname3_cref_balance_graph.pdf}
+    \end{figure}
+\fi
+
+\newpage
+
+[webpage printout showing current balance and recent transactions for Bankname3]
+
+ % \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}, scale=0.9]{Bankname3_current_balance.pdf}
+    
+    \newpage
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{Statements}
+
+[huge packet of statements from last 5 years]
+
+  %\includepdf[pages=-, pagecommand={\thispagestyle{fancy}}, scale=0.9]{Bankname3_statements.pdf}
+
+
+    % =================================================================
+    % PART 4: THE SPEND-DOWN (Irrevocable TRUSTS)
+    % =================================================================
+
+    \BinderPart{PART 4}{The Spend-Down (Irrevocable Trusts)}
+
+\label{part:trusts}
+
+    \phantomsection
+    \addcontentsline{toc}{subsection}{Irrevocable Trusts summary: Final spend-down to eligibility limits}
+    \begin{center}
+        \LARGE \textbf{EXEMPT ASSETS \& TRUST FUNDING} \\
+        \vspace{0.2cm}
+        \large Final Spend-Down to Eligibility Limits
+    \end{center}
+    \vspace{0.5cm}
+    
+    % --- SUMMARY BOX ---
+    \noindent\fbox{%
+        \parbox{\textwidth}{%
+            \vspace{0.3cm}
+            \textbf{Summary of Compliance:}
+            \begin{itemize}
+                \item Both asset transfers are \textbf{exempt} under NYS Medicaid rules.
+                \item \textbf{Funding Source:} Bankname Official Checks (withdrawn Month day, year).
+            \end{itemize}
+            \vspace{0.2cm}
+        }%
+    }
+    \vspace{0.8cm}
+    
+    \begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{@{} p{4cm} p{3.5cm} l p{5cm} @{}}
+    \toprule
+    \textbf{Trust Entity} & \textbf{Trust Type} & \textbf{Amount} & \textbf{Funding Instrument} \\
+    \midrule
+    \textbf{NYSARC, Inc.\newline Community Trust} & Pooled Trust & \textbf{\$xxxxx.xx} & Bankname Official Check\newline \#xxxxxxxxxx \\
+    \midrule
+    \textbf{Funeral Home} & Irrevocable\newline Funeral Trust & \textbf{\$xxxxx.00} & Bankname Official Check\newline \#xxxxxxxxxx \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+    
+    \vspace{0.5cm}
+    
+    \noindent \textbf{Attached Documentation:}
+    \begin{enumerate}
+        \item \textbf{Exhibit A (NYSARC):} Copy of Funding Check stub and Joinder Agreement.
+        \item \textbf{Exhibit B (Funeral):} Copy of Funding Check stub, Itemization, and Trust Contract.
+    \end{enumerate}
+
+    \clearpage
+    
+    % --- NYSARC SECTION ---
+        \subsection*{A. NYSARC Pooled Trust (d4C)}
+    \addcontentsline{toc}{subsection}{A. NYSARC Pooled Trust (d4C) [notarized]}
+\markright{A. NYSARC Pooled Trust (d4C)}
+
+% A d4C trust was possible because the applicant was under the age of 65 and also disabled.
+
+%%% To establish a trust: https://www.nysarctrustservices.org/wp-content/uploads/2022/01/Instructions_to_Establish_an_Account_CT_I_and_CT_II.pdf
+
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{Official check from Bankname to fund NYSARC trust}
+    
+    %\vspace*{2cm}
+        \sectiontitle{Transfer to NYSARC Pooled Trust (d4C)}
+
+Exempt Asset Transfer.
+
+        %\vspace{0.5cm}
+    \begin{center}
+	%	\makebox[\textwidth]{\includegraphics[width=0.95\paperwidth]{check_to_NYSARC.pdf}}
+[scan of official check sent to fund NYSARC]
+    \end{center}
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{NYSARC Joinder}
+    \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}, scale=0.9]{NYSARC Combined_Joinder_Agreement_FILLABLE.pdf}
+
+
+[Note: I submitted the Joinder. I still need to send documentation of the NYSARC trust once it is created.]
+    
+\clearpage
+    % --- FUNERAL SECTION ---
+    \subsection*{B. Irrevocable Funeral Trust}
+    \addcontentsline{toc}{subsection}{B. Irrevocable Funeral Trust}
+
+
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{Official check from Bankname to fund Funeral trust}
+    \markright{B. Irrevocable Funeral Trust $\cdot$ Transfer}
+
+   % \vspace*{2cm}
+        \sectiontitle{Transfer to Irrevocable Funeral Trust}
+Exempt Asset Transfer.
+        %\vspace{0.5cm}
+    \begin{center}
+	%	\makebox[\textwidth]{\includegraphics[width=0.95\paperwidth]{check_to_FuneralHome.pdf}}
+[official check to funeral home / PrePlan]
+    \end{center}
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{Funeral Trust itemization and agreement}
+ \markright{B. Irrevocable Funeral Trust $\cdot$ Agreement}
+     \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}, scale=0.89]{PrePlan_PP-ITM-00_08.15.pdf}
+     \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}, scale=0.89]{PrePlan_PP-IGPECA_2020.pdf} 
+
+% =================================================================
+    % PART 5: VERIFICATION OF PAST SOURCES
+    % =================================================================
+
+  \BinderPart{PART 5}{Verification of Past Sources}
+    
+    \phantomsection
+    \addcontentsline{toc}{subsection}{Summary of Funds Origin}
+    \sectiontitle{Summary of Funds Origin}
+    \noindent
+    This section provides documentation for large historical deposits identified in the 5-year lookback period.
+    
+    \vspace{0.5cm}
+    
+    % ITEM A
+    \noindent \textbf{A. Inheritance (\$xxxxx.xx)} \\
+    \textit{Date: Month day, [year]} \\
+    Proceeds from the Bankname3 Life Insurance policy of the applicant's mother, momfirstname Lastname. (See Exhibit A, p.~\pageref{page:Bankname3let}).
+    
+    \vspace{0.8cm} % Nice spacing between items
+    
+    % ITEM B
+    \noindent \textbf{B. Opening Bankname Deposit (\$xxxxx.00)} \\
+    \textit{Date: Month day, year} \\
+    Deposit slip establishing the starting balance of the Bankname account. Represents accumulated cash savings prior to account opening. (See Exhibit B, p.~\pageref{page:openingBankname}).
+    
+    \vspace{0.8cm}
+    
+    % ITEM C
+    \noindent \textbf{C. [year] Tax Returns} \\
+    \textit{Date: [following year] Tax Season} 
+    \begin{itemize}
+        % Standard bullets align nicely under the text now
+        \item \textbf{Federal (1040, p.~\pageref{page:1040}):}  Refund Issued. \\
+        \textit{Note: The attached 1040 contains a calculation error which was subsequently corrected by the IRS. (See Correction Notice, p.~\pageref{page:IRScorrection}).}
+        \item \textbf{NYS (IT-201, p.~\pageref{page:NYStaxes}):} Tax liability \$xxxx paid in full. \\
+        \textit{Note: Liability initially paid by Daughtername Lastname. (See Part~\ref{sect:part3} A, p.~\pageref{page:reimb} for reimbursement documentation).}
+    \end{itemize}
+
+\noindent
+The 1099 documents are available:
+\begin{itemize}
+	\item Inheritance, p.~\pageref{page:1099inheritance}
+	\item SSDI, p.~\pageref{page:SS1099}
+\end{itemize}
+  
+\noindent
+\textit{Other than [the one year], taxes were not filed for recent years.}
+
+    \vfill
+    \begin{center}
+        \textit{Supporting documentation follows on next pages.}
+    \end{center}
+    \clearpage
+
+    %
+    
+    
+    \phantomsection
+    \addcontentsline{toc}{subsection}{A. Inheritance}
+
+    \addcontentsline{toc}{subsubsection}{Notification letter for life insurance payout}
+\markright{A. Inheritance}
+
+
+\label{page:Bankname3let}
+[Bankname3 inheritance letter]
+  %  \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}]{Bankname3_inheritance_letter.pdf}
+
+\phantomsection
+   \addcontentsline{toc}{subsubsection}{Mother momfirstname Lastname' death certificate}
+\markright{A. Inheritance $\cdot$ Mother's death certificate}
+\label{page:deathcert}
+[death certificate to show why applicant received inheritance]
+%    \includepdf[width=0.85\paperwidth, pagecommand={\thispagestyle{fancy}}]{momfirstname_Death_Cert_scan.png}
+
+\phantomsection
+    \addcontentsline{toc}{subsubsection}{1099-R}
+\markright{A. Inheritance $\cdot$ 1099}
+\label{page:1099inheritance}
+[1099 for receiving the inheritance]
+   % \includepdf[pages=-, scale=0.87, pagecommand={\thispagestyle{fancy}}]{1099inheritance.pdf} 
+
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{subsection}{B. Opening Bankname Deposit (Life savings)}
+\markright{B. Opening Bankname Deposit (Life savings)}
+    
+\label{page:openingBankname}
+
+[printouts from the bank showing documentation of the opening deposit]
+   % \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}]{openingBankname.pdf}
+    
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{subsection}{C. Tax Returns}
+	\label{sect:taxreturns}
+\markright{C. Tax Returns $\cdot$ 1040 Federal}
+
+    
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{1040: Federal tax return, year}
+
+	\label{page:1040}
+% trim={left lower right upper}. The clip option is necessary to ensure that the content outside the specified trim area is not displayed or accessible. 
+\includepdf[pages=-,pagecommand={}, scale = 0.95, trim={1em 1em 1em 1em}, clip]{f1040.pdf}
+
+    
+
+% 2. The Payment (The Action)
+    \newpage
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{Check \#xxx: Federal Tax  Payment (Tax Due)}
+    \sectiontitle{IRS Tax Payment (year Tax Year)}
+\markright{C. Tax Returns $\cdot$  Payment to IRS}
+	\label{sec:checktoIRS}
+
+    \begin{center}
+       % \includegraphics[width=0.8\textwidth]{checktoIRSscanned.pdf}         \\
+        \vspace{0.5cm}
+        \textit{Note: Physical check \#xxx (\$xxxx) mailed 4/15/year; \\processed electronically by IRS on 4/xx/year.}
+    \end{center}
+
+\clearpage
+    % Attach the Refund Evidence
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{CP12: IRS Refund / Correction Notice, tax year [year]}
+	\label{page:IRScorrection}
+\markright{C. Tax Returns $\cdot$ IRS correction notice}
+[oops - made an arithmetic error, got a refund]
+	%\includepdf[pages=-,pagecommand={}, scale = 0.95,trim={1em 1em 1em 1em}, clip]{IRScorrection.pdf} 
+
+
+
+    % Placing the full NY tax return here as a reference document
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{IT-201: New York State tax return, tax year (year)}
+	\label{page:NYStaxes}
+\markright{C. Tax Returns $\cdot$ IT-201 New York State}
+
+    \includepdf[pages=-, pagecommand={\thispagestyle{fancy}}, scale=0.9]{it201_2023_fill_in.pdf}
+
+
+
+
+
+\end{document}

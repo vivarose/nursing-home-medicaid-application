@@ -1,0 +1,56 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {section}{PART 1: Forms \& Identity}{2}{section.1}%
+\etoc@startlocaltoc {2}
+\contentsline {subsection}{Permission to Verify Information}{3}{section*.4}%
+\contentsline {subsection}{Permission to Represent Applicant}{4}{section*.5}%
+\contentsline {subsection}{DOH-5148: Authorization for Verification of Resources}{4}{section*.6}%
+\contentsline {subsection}{DOH-5147: Submission of Application on Behalf of Applicant}{6}{section*.7}%
+\contentsline {subsection}{Power of Attorney [notarized]}{8}{section*.8}%
+\contentsline {subsection}{DOH-4220: Medicaid application form}{17}{section*.9}%
+\contentsline {subsection}{DOH-5178: Supplement A}{37}{section*.10}%
+\contentsline {subsection}{Identity Documents}{45}{section*.11}%
+\contentsline {subsection}{Health insurance}{47}{section*.12}%
+\contentsline {subsection}{Nursing Home Documents (PRI/Admission)}{49}{section*.13}%
+\contentsline {section}{PART 2: Income Verification}{56}{section.2}%
+\etoc@startlocaltoc {3}
+\contentsline {subsection}{Summary of Monthly Income (2026)}{57}{section*.16}%
+\contentsline {subsection}{Social Services Disability Income (SSDI)}{58}{section*.18}%
+\contentsline {subsubsection}{SSA-4926-SM: SSDI Cost of Living Adjustment (COLA)}{58}{section*.18}%
+\contentsline {subsubsection}{Social Security Benefit Verification Letter}{59}{section*.19}%
+\contentsline {subsubsection}{Recent SSDI payments}{61}{section*.20}%
+\contentsline {subsubsection}{SSA-1099SM: SSDI Benefit Statement for [lastyear]}{61}{section*.21}%
+\contentsline {subsection}{Bankname3 retirement account payout confirmation}{63}{section*.22}%
+\contentsline {section}{PART 3: Resources \& Asset History}{64}{section.3}%
+\etoc@startlocaltoc {4}
+\contentsline {subsection}{Resource Summary}{65}{section*.25}%
+\contentsline {subsection}{A. Bankname Audit}{66}{section*.27}%
+\contentsline {subsubsection}{Bankname Audit Summary}{66}{section*.27}%
+\contentsline {subsubsection}{Check \#xxx: NYS Tax Reimbursement (\$xxxx)}{67}{section*.28}%
+\contentsline {subsubsection}{IT-370: NYS Tax Extension and Receipt for \$xxxx}{68}{section*.30}%
+\contentsline {subsubsection}{Evidence of State Tax liability: \$xxxx}{70}{section*.30}%
+\contentsline {subsubsection}{Bankname Statements}{71}{section*.31}%
+\contentsline {subsection}{B. Bankname2 FCU Audit}{72}{section*.32}%
+\contentsline {subsection}{C. Bankname3 Retirement (Asset History)}{73}{section*.34}%
+\contentsline {subsubsection}{Statements}{75}{section*.35}%
+\contentsline {section}{PART 4: The Spend-Down (Irrevocable Trusts)}{76}{section.4}%
+\etoc@startlocaltoc {5}
+\contentsline {subsection}{Irrevocable Trusts summary: Final spend-down to eligibility limits}{77}{section*.38}%
+\contentsline {subsection}{A. NYSARC Pooled Trust (d4C) [notarized]}{78}{section*.40}%
+\contentsline {subsubsection}{Official check from Bankname to fund NYSARC trust}{78}{section*.41}%
+\contentsline {subsubsection}{NYSARC Joinder}{79}{section*.42}%
+\contentsline {subsection}{B. Irrevocable Funeral Trust}{90}{section*.43}%
+\contentsline {subsubsection}{Official check from Bankname to fund Funeral trust}{90}{section*.44}%
+\contentsline {subsubsection}{Funeral Trust itemization and agreement}{91}{section*.45}%
+\contentsline {section}{PART 5: Verification of Past Sources}{97}{section.5}%
+\etoc@startlocaltoc {6}
+\contentsline {subsection}{Summary of Funds Origin}{98}{section*.48}%
+\contentsline {subsection}{A. Inheritance}{99}{section*.49}%
+\contentsline {subsubsection}{Notification letter for life insurance payout}{99}{section*.49}%
+\contentsline {subsubsection}{Mother momfirstname Lastname' death certificate}{99}{section*.50}%
+\contentsline {subsubsection}{1099-R}{99}{section*.51}%
+\contentsline {subsection}{B. Opening Bankname Deposit (Life savings)}{100}{section*.52}%
+\contentsline {subsection}{C. Tax Returns}{101}{section*.53}%
+\contentsline {subsubsection}{1040: Federal tax return, year}{101}{section*.54}%
+\contentsline {subsubsection}{Check \#xxx: Federal Tax Payment (Tax Due)}{103}{section*.55}%
+\contentsline {subsubsection}{CP12: IRS Refund / Correction Notice, tax year [year]}{104}{section*.56}%
+\contentsline {subsubsection}{IT-201: New York State tax return, tax year (year)}{104}{section*.57}%
