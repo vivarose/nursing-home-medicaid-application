@@ -14,7 +14,7 @@ For the retirement account, we converted the asset to an income stream using mon
 
 The whole thing is super byzantine and took me almost a month to set up and document, but I was able to take care of everything without hiring a lawyer.
 
-The applicant has too much income as well -- it's capped at $50/month income -- but that isn't disqualifying. It just means the applicant needs to pay the rest of the income to the nursing home each month.
+The applicant has too much income as well -- it's capped at $50/month income (https://aging.ny.gov/raise-personal-needs-allowance-pna) -- but that isn't disqualifying. It just means the applicant needs to pay the rest of the income (NAMI) to the nursing home each month.
 
 ---
 
