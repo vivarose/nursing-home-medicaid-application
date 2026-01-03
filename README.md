@@ -3,6 +3,8 @@ Need to apply for chronic care medicaid? See Medicaid-binder-blank.pdf for a bla
 
 Maybe it will serve as inspiration to you. NOTE: I do not promise to keep these documents up-to-date. This is only provided as an example as of December 2025. I am not a lawyer.
 
+this template is especially relevant for the rare applicant who is disabled, below 65 years old, and living in a nursing home. 
+
 A nursing home costs over $10k/month, so almost no one can pay for it out of pocket forever. Almost everyone in long term care ends up depending on Chronic Care Medicaid. You can private pay until you run out of money, and then get Medicaid, but that's not what we did.
 
 At first, the applicant had too much money (assets). 
